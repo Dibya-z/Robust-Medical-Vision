@@ -4,3 +4,4 @@ seaborn
 opencv-python
 scikit-image
 jupyter
+scikit-learn
