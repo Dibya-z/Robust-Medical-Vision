@@ -6,4 +6,6 @@ __pycache__/
 *.pkl
 dataset/
 !dataset/.gitkeep
-venv/
+venv/*.pth
+.DS_Store
+.vscode/
