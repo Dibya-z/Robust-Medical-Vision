@@ -22,7 +22,6 @@ from PIL import Image
 from sklearn.model_selection import GroupShuffleSplit
 from sklearn.preprocessing import LabelEncoder
 import os
-os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
 import torch
 from torch.utils.data import Dataset, DataLoader, WeightedRandomSampler
 import torchvision.transforms as T
