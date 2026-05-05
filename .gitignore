@@ -9,11 +9,16 @@ ML/dataset/*
 !ML/dataset/.gitkeep
 DL/dataset/*
 !DL/dataset/.gitkeep
-outputs/
+/outputs/
 ML/outputs/*
 !ML/outputs/.gitkeep
+!ML/outputs/plots/
+!ML/outputs/plots/*
 DL/outputs/*
 !DL/outputs/.gitkeep
+!DL/outputs/*.png
+!DL/outputs/*.jpg
+!DL/outputs/*.pdf
 
 # Python
 __pycache__/
