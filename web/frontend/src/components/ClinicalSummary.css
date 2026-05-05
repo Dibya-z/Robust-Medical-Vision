@@ -1,0 +1,189 @@
+/* ClinicalSummary — plain-English interpretation layer */
+
+.clinical-summary {
+  background: var(--status-bg);
+  border: 1.5px solid color-mix(in srgb, var(--status-color) 30%, transparent);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  animation: fadeUp 0.4s ease;
+}
+
+/* Banner */
+.cs-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: color-mix(in srgb, var(--status-color) 10%, transparent);
+  border-bottom: 1px solid color-mix(in srgb, var(--status-color) 20%, transparent);
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.cs-banner-left { display: flex; align-items: center; gap: 14px; }
+.cs-icon        { font-size: 1.75rem; flex-shrink: 0; }
+.cs-title       { font-size: 1rem; font-weight: 700; color: var(--text-primary); margin-bottom: 4px; }
+.cs-badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.cs-phase-tag {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+/* Body */
+.cs-body {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 0;
+}
+
+.cs-left {
+  padding: 20px 22px;
+  border-right: 1px solid color-mix(in srgb, var(--status-color) 15%, transparent);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cs-section-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  margin-bottom: -8px;
+}
+
+.cs-summary {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Differential list */
+.diff-list { display: flex; flex-direction: column; gap: 8px; }
+.diff-title {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+.diff-items { display: flex; flex-direction: column; gap: 6px; }
+
+.diff-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  background: var(--bg-glass);
+  border-radius: var(--radius-md);
+  border-left: 3px solid transparent;
+}
+.risk-border-malignant    { border-left-color: var(--red); }
+.risk-border-precancerous { border-left-color: var(--amber); }
+.risk-border-benign       { border-left-color: var(--green); }
+
+.diff-emoji { font-size: 1rem; flex-shrink: 0; }
+.diff-info  { flex: 1; }
+.diff-name  { font-size: 0.875rem; font-weight: 600; color: var(--text-primary); }
+.diff-risk  { font-size: 0.7rem; font-weight: 600; text-transform: capitalize; margin-top: 1px; }
+
+.diff-prob {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.diff-cp-note {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin: 4px 0 0;
+  padding: 8px 12px;
+  background: rgba(245,158,11,0.08);
+  border-radius: var(--radius-sm);
+  border: 1px solid rgba(245,158,11,0.2);
+  line-height: 1.5;
+}
+
+/* Confidence bar */
+.conf-bar-wrap { display: flex; flex-direction: column; gap: 6px; }
+.conf-bar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.conf-label { font-size: 0.75rem; font-weight: 600; color: var(--text-muted); }
+.conf-level { font-size: 0.82rem; font-weight: 700; }
+
+.conf-bar-track {
+  height: 10px;
+  background: rgba(255,255,255,0.07);
+  border-radius: 99px;
+  overflow: hidden;
+}
+.conf-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+}
+.conf-bar-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+}
+
+/* Action panel */
+.cs-action {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.action-danger  { background: rgba(248,113,113,0.06); }
+.action-warning { background: rgba(251,191,36,0.06); }
+.action-safe    { background: rgba(52,211,153,0.06); }
+
+.cs-action-icon  { font-size: 1.75rem; }
+.cs-action-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+.cs-action-text {
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+  margin: 0;
+  flex: 1;
+}
+
+.cs-disclaimer {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  line-height: 1.5;
+  margin-top: auto;
+}
+.cs-disclaimer strong { color: var(--amber); }
+
+@media (max-width: 760px) {
+  .cs-body { grid-template-columns: 1fr; }
+  .cs-left { border-right: none; border-bottom: 1px solid var(--border-subtle); }
+}
