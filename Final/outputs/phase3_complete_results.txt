@@ -1,0 +1,92 @@
+
+╔══════════════════════════════════════════════════════════════════╗
+║         PHASE 3 COMPLETE RESULTS — ROBUST MEDICAL VISION        ║
+║         HAM10000 · EfficientNet-B3 · Hybrid Architecture         ║
+╚══════════════════════════════════════════════════════════════════╝
+
+DATASET
+  Total images:    10,015
+  Train:           6,959  (GroupShuffleSplit — zero leakage)
+  Val:             1,529
+  Test:            1,527
+  Classes:         7 (58:1 imbalance ratio)
+
+─────────────────────────────────────────────────────────────────
+ABLATION TABLE
+─────────────────────────────────────────────────────────────────
+  Model          F1 Macro    AUROC      ECE     OOD%
+  ──────────── ────────── ──────── ──────── ────────
+  A (ML)           0.3488   0.8616      N/A     4.6%
+  B (DL)           0.5687   0.9165   0.0890     5.5%
+  C (Hybrid)       0.5687   0.9165   0.0890    10.1%
+
+  Model C CP Coverage: 0.9528 (≥0.95 formal guarantee)
+  Model C Avg Set Size: 3.67
+
+─────────────────────────────────────────────────────────────────
+KEY IMPROVEMENTS FROM PHASE 2
+─────────────────────────────────────────────────────────────────
+  Phase 2 (B1, batch16):  F1 = 0.569, AUROC = 0.939, ECE = ~0.22
+  Phase 3 (B3, batch64):  F1 = 0.569, AUROC = 0.916, ECE = 0.089
+
+  F1 improvement:   +-0.000 pts
+  AUROC improvement: +-0.023 pts
+  ECE improvement:   0.220 → 0.089
+                     (59.5% reduction)
+
+─────────────────────────────────────────────────────────────────
+TEMPERATURE SCALING
+─────────────────────────────────────────────────────────────────
+  Temperature T:  1.5000
+  ECE before:     0.0799
+  ECE after:      0.0887
+  Reduction:      -10.9%
+
+─────────────────────────────────────────────────────────────────
+MAHALANOBIS OOD DETECTION
+─────────────────────────────────────────────────────────────────
+  Threshold:        596.1450
+  False alarm rate: 0.054 (target 0.05)
+  OOD detection:    0.000
+  OOD AUROC:        0.008
+
+─────────────────────────────────────────────────────────────────
+UNCERTAINTY VALIDATION
+─────────────────────────────────────────────────────────────────
+  Correct predictions mean uncertainty:  0.0019
+  Wrong predictions mean uncertainty:    0.0035
+  Validated: YES ✅
+
+─────────────────────────────────────────────────────────────────
+CONFORMAL PREDICTION
+─────────────────────────────────────────────────────────────────
+  Coverage:          0.9581 (≥0.95 guaranteed)
+  Average set size:  3.69
+  Singleton rate:    0.053
+
+─────────────────────────────────────────────────────────────────
+OUTPUT FILES
+─────────────────────────────────────────────────────────────────
+  Checkpoints:
+    best_model_b3.pth                 Model B (EfficientNet-B3)
+    temperature_scaler.pth            Calibration parameter T
+    mahalanobis_ood.pkl               OOD detector
+    model_a_gp.pkl                    Model A (GP + IsoForest)
+    conformal_predictor.pkl           Conformal predictor
+
+  Plots:
+    ablation_table.png                Main ablation figure
+    architecture_diagram.png          Full pipeline diagram
+    architecture_diagram_simple.png   Slides version
+    calibration_before_after.png      ECE improvement
+    mahalanobis_ood.png               OOD detection results
+    conformal_set_sizes.png           CP set size analysis
+    uncertainty_correlation.png       Uncertainty analysis
+
+  Data:
+    ablation_results.json             All model metrics
+    conformal_results.json            CP evaluation
+    step2_calibration_results.json    Temperature + OOD
+    model_a_results.json              GP baseline results
+    model_b_full_results.json         DL full results
+    final_summary.json                Everything consolidated

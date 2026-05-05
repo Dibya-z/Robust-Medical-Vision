@@ -1,0 +1,14 @@
+{
+  "temperature_scaling": {
+    "T": 1.5000152587890625,
+    "ece_before": 0.07994749509029506,
+    "ece_after": 0.0886527993595192,
+    "reduction_pct": -10.888776764540419
+  },
+  "mahalanobis_ood": {
+    "threshold": 596.1449951171871,
+    "false_alarm_rate": 0.05435494433529797,
+    "ood_detection_rate": 0.0,
+    "ood_auroc": 0.007648984937786511
+  }
+}

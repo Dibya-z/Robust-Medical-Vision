@@ -1,0 +1,21 @@
+{
+  "f1_macro": 0.3487963511230518,
+  "auroc": 0.861567695070624,
+  "f1_per_class": [
+    0.8571428571428571,
+    0.4012539184952978,
+    0.3890784982935153,
+    0.37037037037037035,
+    0.42372881355932207,
+    0.0,
+    0.0
+  ],
+  "ood_rate": 4.5841519318926,
+  "n_train_gp": 2000,
+  "n_features": 104,
+  "pca_components": 50,
+  "variance_retained": 0.982413649559021,
+  "unc_correct": 0.774372320680841,
+  "unc_wrong": 1.280643433113179,
+  "description": "GLCM+LBP+HSV \u2192 StandardScaler \u2192 PCA(50) \u2192 GP (OVR) + IsoForest"
+}
