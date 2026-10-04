@@ -34,3 +34,11 @@ __pycache__/
 .DS_Store
 .vscode/
 .idea/
+
+# Paper reproduction: local data and generated artifacts
+/reproductions/*/data/
+/reproductions/*/checkpoints/
+/reproductions/*/outputs/
+/reproductions/*/runs/
+/reproductions/*/wandb/
+/reproductions/*/mlruns/
